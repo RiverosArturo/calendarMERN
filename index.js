@@ -26,11 +26,10 @@ app.use( express.json() );
 //aqui van a estar nuestras rutas de localhost:4000/api/auth/+nombre que le demos
 app.use('/api/auth', require('./routes/auth') );
 app.use('/api/events', require('./routes/events'));
-// app.use('/api/events', require('./routes/events') );
-//TODO: auth // crear, login, renew
-//TODO: CRUD: Eventos
 
-
+app.get('*', (req, res) => {
+    res.sendFile( __dirname + '/public/index.html');
+})
 
 
 //Escuchar peticiones:
